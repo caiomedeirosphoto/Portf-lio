@@ -920,6 +920,13 @@ footer{padding:0 0 28px}
 .plan.best .price b{color:#5BE08F}
 .hot{box-shadow:0 10px 26px -6px rgba(220,58,64,.75),0 0 30px rgba(220,58,64,.35)!important}
 .plan.pro{box-shadow:0 2px 8px -2px rgba(20,20,20,.07),0 40px 70px -40px rgba(20,20,20,.5)}
+/* sem linha escura nas bordas arredondadas + sombra mais forte */
+.rbox,.rcard:nth-child(2) .rbox{background:#EFEBE3;border:0;outline:0;box-shadow:0 4px 12px -4px rgba(20,20,20,.16),0 38px 60px -28px rgba(20,20,20,.6)}
+.rbox video{border-radius:18px;clip-path:inset(0 round 18px)}
+.player{background:#EFEBE3!important;border:0!important;outline:0;box-shadow:none!important}
+.player video,.player .ph{border-radius:inherit}
+.player-wrap{box-shadow:0 6px 16px -6px rgba(20,20,20,.18),0 56px 90px -38px rgba(20,20,20,.68)}
+.player.has-poster::after{border-radius:inherit}
 </style>
 </head>
 <body>
@@ -1200,7 +1207,7 @@ footer{padding:0 0 28px}
         <span class="pro-tag">Pro</span>
         <h3 class="pname">Pacote Pro</h3>
         <div class="price"><b>R$2.490</b><span>/mês</span></div>
-        <div class="plus">Tudo do Pacote Mensal, e mais:</div>
+        <div class="plus">Tudo do Pacote Mensal e mais:</div>
         <ul>
           <li><b>12 reels</b> editados por mês</li>
           <li><b>Roteiro completo</b> de 4 vídeos</li>
