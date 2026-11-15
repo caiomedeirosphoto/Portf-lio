@@ -929,6 +929,34 @@ footer{padding:0 0 28px}
 .player.has-poster::after{border-radius:inherit}
 @media (min-width:821px){.ba-row{grid-template-columns:360px minmax(0,520px);justify-content:center;gap:52px}}
 .ba.ba-v{isolation:isolate}.ba-v video.before{border-radius:20px 0 0 20px}
+@media (min-width:1021px){
+  .pin-stick{height:auto;min-height:0;padding-bottom:64px}
+  .pin-wrap{height:calc(150vh + 520px)}
+  #sobre{padding-top:8px!important}
+  .about{grid-template-columns:minmax(0,400px) minmax(0,560px);justify-content:center;gap:60px}
+}
+.portrait{border:0;background:#EFEBE3;box-shadow:0 4px 12px -4px rgba(20,20,20,.16),0 36px 60px -32px rgba(20,20,20,.55)}
+/* sombras centralizadas (aparecem em cima também, um pouco mais embaixo) */
+:root{--sh-s:0 6px 30px -6px rgba(20,20,20,.26),0 1px 6px rgba(20,20,20,.07);
+      --sh-m:0 10px 46px -8px rgba(20,20,20,.34),0 2px 8px rgba(20,20,20,.08);
+      --sh-l:0 14px 64px -8px rgba(20,20,20,.42),0 2px 10px rgba(20,20,20,.09)}
+.rbox,.rcard:nth-child(2) .rbox{box-shadow:var(--sh-m)}
+.player-wrap{box-shadow:var(--sh-l)}
+.ba.ba-v{box-shadow:var(--sh-m)}
+.work{box-shadow:var(--sh-s)}
+.work:hover{box-shadow:var(--sh-m)}
+.tlx.ed{box-shadow:var(--sh-l)}
+.portrait{box-shadow:var(--sh-m)}
+.plan,.plan:first-child{box-shadow:var(--sh-s)}
+.plan:hover{box-shadow:var(--sh-m)}
+.plan.best,.plan.best:hover{box-shadow:var(--sh-l)}
+.plan.pro,.plan.pro:hover{box-shadow:var(--sh-m)}
+.cta-box{box-shadow:var(--sh-l)}
+.numgrid{box-shadow:var(--sh-s)}
+.tlx.ed{box-shadow:0 18px 72px -4px rgba(20,20,20,.55),0 4px 14px rgba(20,20,20,.16)}
+.plan.best .price b{background:linear-gradient(100deg,#B6FBD0 0%,#5BE08F 38%,#2FCB74 70%,#9AF5BE 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 6px 18px rgba(52,211,113,.35));animation:priceSheen 5s ease-in-out infinite;padding-right:.04em}
+@keyframes priceSheen{0%,100%{background-position:0% 0}50%{background-position:100% 0}}
 </style>
 </head>
 <body>
