@@ -1041,6 +1041,22 @@ footer{padding:0 0 28px}
 .plan .btn-ok{font-size:20px;font-weight:750;letter-spacing:-.02em;padding:18px 18px}
 .plan.pro .btn-ok,.plan.pro .btn-ok:hover{background:linear-gradient(135deg,#F3D98E 0%,#E0B450 48%,#F1D88C 78%,#D6A43C 100%);color:#3D2B04;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 6px 18px -6px rgba(201,150,40,.5)}
 @media (max-width:820px){.plan .btn-ok{font-size:19px}}
+/* CTA com a mesma distância em cima e embaixo */
+#pacotes{padding-bottom:0}
+.close{padding:60px 0 86px!important}
+@media (max-width:820px){.close{padding:48px 0 74px!important}}
+/* processo: mesmo arredondamento do resto do site */
+.tlx.ed{border-radius:22px}
+.ed .clip{border-radius:16px}
+.ed .clip::before{border-radius:inherit}
+@media (max-width:1020px){.ed .clip{border-radius:14px}}
+/* só dois pacotes */
+@media (min-width:821px){.plans{grid-template-columns:minmax(0,370px) minmax(0,450px);justify-content:center;gap:22px}}
+/* botões dos pacotes: mais enxutos, em pílula */
+.plan .btn-ok{font-size:17px;font-weight:700;letter-spacing:-.01em;padding:14px 22px;border-radius:999px;margin-top:4px;
+  background:linear-gradient(180deg,#2BC56B,#1DA655);box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 4px 16px -4px rgba(30,158,85,.5)}
+.plan .btn-ok:hover{background:linear-gradient(180deg,#30D074,#1FB05B);box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 6px 22px -4px rgba(30,158,85,.65)}
+@media (max-width:820px){.plan .btn-ok{font-size:17px}}
 </style>
 </head>
 <body>
@@ -1316,19 +1332,6 @@ footer{padding:0 0 28px}
           <li>Todos os vídeos <b>organizados no Drive</b></li>
         </ul>
         <a class="btn btn-ok" data-wa data-plan="Pacote mensal" href="#contato">Quero o pacote mensal</a>
-      </div>
-      <div class="plan pro">
-        <span class="pro-tag">Pro</span>
-        <h3 class="pname">Pacote Pro</h3>
-        <div class="price"><b>R$2.490</b><span>/mês</span></div>
-        <div class="plus">Tudo do Pacote Mensal e mais:</div>
-        <ul>
-          <li><b>12 reels</b> editados por mês</li>
-          <li><b>Roteiro completo</b> de 4 vídeos</li>
-          <li><b>Pauta do mês</b> com 12 ideias de vídeo</li>
-          <li><b>Chamada mensal</b> de estratégia (30 min)</li>
-        </ul>
-        <a class="btn btn-ok" data-wa data-plan="Pacote Pro" href="#contato">Quero o Pro</a>
       </div>
     </div>
     <p class="plans-foot rv">Correções pequenas (legenda, palavra, ajuste fino) são ilimitadas. Alterações maiores: até 3 por vídeo, a partir da 4ª é cobrado à parte.</p>
