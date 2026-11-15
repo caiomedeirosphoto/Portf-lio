@@ -972,6 +972,11 @@ footer{padding:0 0 28px}
 .btn-big .arc{color:#1DAA54}
 .btn-big:hover .arc{transform:scale(1.08)}
 .btn-big::after{background:linear-gradient(100deg,transparent,rgba(255,255,255,.24),transparent);animation-duration:4.2s}
+@media (max-width:820px){
+  .nav{transition:transform .5s cubic-bezier(.22,.8,.2,1),box-shadow .4s var(--ease),background .4s;will-change:transform}
+  .nav.hide{transform:translateY(calc(-100% - 28px))}
+  .works{padding:40px var(--pad) 64px;margin-top:-36px;margin-bottom:-46px}
+}
 </style>
 </head>
 <body>
@@ -1401,6 +1406,14 @@ var PORTRAIT = 'img/caio.jpg';
   var nav=$('#nav'),burger=$('#burger');
   addEventListener('scroll',function(){nav.classList.toggle('on',scrollY>30)},{passive:true});
   burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+
+  /* celular: barra do topo some ao descer e volta ao subir */
+  (function(){var last=scrollY,acc=0,mq=matchMedia('(max-width:820px)');
+    addEventListener('scroll',function(){var y=scrollY,d=y-last;last=y;
+      if(!mq.matches||nav.classList.contains('open')||y<120){nav.classList.remove('hide');acc=0;return}
+      if((d>0)!==(acc>0))acc=0;acc+=d;
+      if(acc>24)nav.classList.add('hide');else if(acc<-12)nav.classList.remove('hide');
+    },{passive:true});})();
   $$('#drawer a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');burger.setAttribute('aria-expanded',false)})});
 
   /* faixa de cortes */
