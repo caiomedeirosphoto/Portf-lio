@@ -957,6 +957,11 @@ footer{padding:0 0 28px}
 .plan.best .price b{background:linear-gradient(100deg,#B6FBD0 0%,#5BE08F 38%,#2FCB74 70%,#9AF5BE 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
   filter:drop-shadow(0 6px 18px rgba(52,211,113,.35));animation:priceSheen 5s ease-in-out infinite;padding-right:.04em}
 @keyframes priceSheen{0%,100%{background-position:0% 0}50%{background-position:100% 0}}
+/* brilho dos botões: uma passada lenta por vez, sem voltar */
+.btn-acc::after,.btn-ok::after,.btn-ink::after{left:-70%;transition:none;width:55%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.26),transparent)}
+.btn-acc:hover::after,.btn-ok:hover::after,.btn-ink:hover::after{left:-70%}
+.btn.sh::after{animation:btnSheen 1.25s cubic-bezier(.4,0,.2,1) both}
+@keyframes btnSheen{from{left:-70%}to{left:135%}}
 </style>
 </head>
 <body>
@@ -1340,6 +1345,11 @@ var PORTRAIT = 'img/caio.jpg';
   eio.observe($('#contato'));eio.observe($('footer'));
 
   requestAnimationFrame(function(){document.body.classList.add('ready')});
+  $$('.btn-acc,.btn-ok,.btn-ink').forEach(function(b){
+    b.addEventListener('mouseenter',function(){b.classList.add('sh')});
+    b.addEventListener('animationend',function(e){if(e.animationName==='btnSheen')b.classList.remove('sh')});
+  });
+
 
   /* rolagem suave (PC com mouse/trackpad) + âncoras suaves em qualquer aparelho */
   (function(){
