@@ -977,6 +977,26 @@ footer{padding:0 0 28px}
   .nav.hide{transform:translateY(calc(-100% - 28px))}
   .works{padding:40px var(--pad) 64px;margin-top:-36px;margin-bottom:-46px}
 }
+/* pacotes: botões, Pro menos preto com toque dourado, glows mais leves */
+.plan .btn-ok{font-size:17.5px;font-weight:700;letter-spacing:-.015em;padding:17px 18px;border-radius:16px;background:linear-gradient(180deg,#27B863,#1A9A50);box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 6px 20px -6px rgba(30,158,85,.55)}
+.plan .btn-ok:hover{background:linear-gradient(180deg,#2BC56B,#1CA456);box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 8px 26px -6px rgba(30,158,85,.7)}
+.plan.pro .btn-ok,.plan.pro .btn-ok:hover{background:linear-gradient(180deg,#27B863,#1A9A50)}
+.plan.pro li::before{background-color:var(--ok)}
+.plan li::before{box-shadow:0 0 8px rgba(30,158,85,.35)}
+.plan.best li::before{box-shadow:0 0 9px rgba(91,224,143,.3)}
+.plan.pro .price b{background:linear-gradient(100deg,#1A9A50,#2DBE6C 55%,#178A47);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;padding-right:.04em}
+.plan.best .price b{filter:drop-shadow(0 4px 12px rgba(52,211,113,.2))}
+.hot{box-shadow:0 8px 18px -8px rgba(220,58,64,.6),0 0 16px rgba(220,58,64,.2)!important}
+.plan.pro .pname{color:#141414}
+.pro-tag{top:31px;right:26px;padding:6px 12px;font-weight:700;color:#4A3505;background:linear-gradient(135deg,#F6DE9A 0%,#E2B755 45%,#F8E7B0 70%,#D9A840 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 4px 14px -4px rgba(201,150,40,.55)}
+.pro-tag::before{color:#7A5608}
+.plan.pro .plus{background:linear-gradient(135deg,rgba(246,222,154,.38),rgba(226,183,85,.2));color:#4A3505;border:1px solid rgba(201,150,40,.4);font-weight:700}
+.plan.pro .plus::before{color:#B9862A}
+.plan.pro{background:linear-gradient(165deg,#FFFFFF 0%,#FDF9F1 55%,#FAF1DE 100%)}
+@media (max-width:820px){.pro-tag{top:29px;right:22px}}
+/* botão do CTA: glow menor e centrado no botão */
+.btn-big,.btn-big:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 0 26px -4px rgba(37,211,102,.42)}
+.ar{display:inline-block;flex:none;width:.95em;height:.95em;font-size:inherit;color:inherit;overflow:hidden;text-indent:-99em;vertical-align:-.12em;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23000' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 8h11M9 3.5 13.5 8 9 12.5'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23000' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 8h11M9 3.5 13.5 8 9 12.5'/%3E%3C/svg%3E") center/contain no-repeat}
 </style>
 </head>
 <body>
@@ -1232,7 +1252,7 @@ footer{padding:0 0 28px}
           <li>Entrega em até 48 horas</li>
         </ul>
         <div class="note one"><b>Primeiro vídeo?</b> Reels de teste por <b>R$150</b></div>
-        <a class="btn btn-ok" data-wa data-plan="Edição avulsa" href="#contato">Quero testar <span class="ar">→</span></a>
+        <a class="btn btn-ok" data-wa data-plan="Edição avulsa" href="#contato">Quero testar</a>
       </div>
       <div class="plan best">
         <span class="hot"><svg viewBox="0 0 16 16" fill="#fff" aria-hidden="true"><path d="M8.6 1c.3 2.1-.6 3.4-1.6 4.5C6 6.6 5 7.7 5 9.5 5 11.4 6.4 13 8 13s3-1.4 3-3.2c0-1-.4-1.8-.9-2.5.9.3 1.9 1.4 1.9 3.2C12 13.2 10.2 15 8 15s-4.5-1.9-4.5-5c0-2.8 1.5-4.3 2.7-5.6C7.3 3.3 8.3 2.4 8.6 1z"/></svg>Mais escolhido</span>
@@ -1251,7 +1271,7 @@ footer{padding:0 0 28px}
           <li>Até <b>3 alterações</b> por vídeo</li>
           <li>Todos os vídeos <b>organizados no Drive</b></li>
         </ul>
-        <a class="btn btn-ok" data-wa data-plan="Pacote mensal" href="#contato">Quero o pacote mensal <span class="ar">→</span></a>
+        <a class="btn btn-ok" data-wa data-plan="Pacote mensal" href="#contato">Quero o pacote mensal</a>
       </div>
       <div class="plan pro">
         <span class="pro-tag">Pro</span>
@@ -1264,7 +1284,7 @@ footer{padding:0 0 28px}
           <li><b>Pauta do mês</b> com 12 ideias de vídeo</li>
           <li><b>Chamada mensal</b> de estratégia (30 min)</li>
         </ul>
-        <a class="btn btn-ok" data-wa data-plan="Pacote Pro" href="#contato">Quero o Pro <span class="ar">→</span></a>
+        <a class="btn btn-ok" data-wa data-plan="Pacote Pro" href="#contato">Quero o Pro</a>
       </div>
     </div>
     <p class="plans-foot rv">Correções pequenas (legenda, palavra, ajuste fino) são ilimitadas. Alterações maiores: até 3 por vídeo, a partir da 4ª é cobrado à parte.</p>
