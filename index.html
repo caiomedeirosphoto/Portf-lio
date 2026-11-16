@@ -7,9 +7,10 @@
 <meta name="description" content="Editor de vídeo e motion designer. Reels, TikTok e Shorts editados na batida, com cortes que seguram a atenção até o final.">
 <meta property="og:title" content="Caio Medeiros | Editor de vídeo & Motion Designer">
 <meta property="og:description" content="Transformo seus vídeos em resultado.">
-<!-- Ao publicar, troque "https://SEUDOMINIO.com.br" pelo endereço do site, senão a imagem não aparece no WhatsApp -->
+<!-- Se o endereço do site mudar, troque também nas duas linhas og:url e og:image, senão a imagem não aparece no WhatsApp -->
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://SEUDOMINIO.com.br/img/og.jpg">
+<meta property="og:url" content="https://caiomedeirosphoto.github.io/Portf-lio/">
+<meta property="og:image" content="https://caiomedeirosphoto.github.io/Portf-lio/img/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -1060,12 +1061,51 @@ footer{padding:0 0 28px}
 .reel-sec{padding-bottom:0!important}
 .reel-cta{margin-top:44px}
 .nums{padding-top:44px!important}
+/* showreel em pé no celular */
+.player-wrap.vert{width:min(100%,340px);margin-left:auto;margin-right:auto}
+.player.vert{aspect-ratio:9/16}
+.player.vert video{object-fit:cover}
+/* lightbox fechado não conta como elemento fixo */
+.lb{visibility:hidden;transition:opacity .35s,visibility 0s .35s}
+.lb.on{visibility:visible;transition:opacity .35s}
+/* celular: barra do topo sem pintar a área do relógio (Safari do iPhone).
+   O elemento fixo fica transparente; o fundo vai num filho; ela é mais estreita e nunca encosta no topo. */
+.nav-bg{display:none}
+@media (max-width:820px){
+  .nav{width:calc(100% - 44px);top:calc(18px + env(safe-area-inset-top,0px));background:none!important;border-color:transparent;box-shadow:none!important;
+    -webkit-backdrop-filter:none;backdrop-filter:none;pointer-events:none;
+    transition:transform .55s cubic-bezier(.4,0,.2,1),opacity .45s ease!important}
+  .nav-bg{display:block;position:absolute;inset:-1px;z-index:0;border-radius:18px;border:1px solid rgba(20,20,20,.22);
+    background:rgba(239,235,227,.78);-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);
+    box-shadow:0 10px 30px -18px rgba(20,20,20,.45);transition:background .4s,box-shadow .4s}
+  .nav.on .nav-bg{background:rgba(239,235,227,.9);box-shadow:0 14px 40px -18px rgba(20,20,20,.55)}
+  .nav .brand,.nav .nav-cta,.nav .burger{position:relative;z-index:1;pointer-events:auto}
+  .nav .drawer{z-index:2}
+  .nav.hide{transform:translate(-50%,-6px) scale(.97);opacity:0}
+  .nav.hide .brand,.nav.hide .nav-cta,.nav.hide .burger{pointer-events:none}
+}
+/* celulares pequenos (até 380px): nada passa da largura da tela */
+@media (max-width:380px){
+  .pin-stick .h2{font-size:8.6vw}
+  .pain-bar{font-size:13px;gap:8px;padding-left:10px;padding-right:10px}
+  .pain-bar .ok{width:26px;height:26px}
+  .note.one{font-size:11.5px;padding-left:6px;padding-right:6px}
+  .btn-big{font-size:16px;padding-left:18px}
+  .tlx.ed{max-width:calc(100vw - 40px)}
+  .ed .ed-main,.ed .tracks,.ed .track,.ed .clip{min-width:0}
+  .ed .clip p{font-size:14.5px;white-space:normal}
+  .ed .clip .mono{font-size:9px;letter-spacing:.12em}
+  .ed-top .mono{font-size:9px;letter-spacing:.08em}
+  .ed-top .tc{font-size:10px;letter-spacing:.04em}
+  .ed-top{gap:8px}
+}
 </style>
 </head>
 <body>
 
 <!-- ================= NAV ================= -->
 <header class="nav" id="nav">
+  <span class="nav-bg" aria-hidden="true"></span>
   <a class="brand" href="#top" aria-label="Caio Medeiros, voltar ao topo">Caio Medeiros</a>
   <nav class="nav-links" aria-label="Seções">
     <a href="#showreel">Showreel</a>
@@ -1365,7 +1405,7 @@ footer{padding:0 0 28px}
         <div class="foot-name">Caio Medeiros</div>
       </div>
       <div class="foot-cols">
-        <div><h5>Navegue</h5><a href="#showreel">Showreel</a><a href="#trabalhos">Trabalhos</a><a href="#processo">Processo</a><a href="#pacotes">Pacotes</a></div>
+        <div><h5>Navegue</h5><a href="#showreel">Showreel</a><a href="#trabalhos">Trabalhos</a><a href="#processo">Processo</a><a href="#sobre">Sobre</a><a href="#pacotes">Pacotes</a></div>
         <div><h5>Contato</h5><a data-wa href="#">WhatsApp</a><a href="https://instagram.com/caiomedeiros.mov" target="_blank" rel="noopener">Instagram</a></div>
       </div>
       <div class="foot-b mono"><span>© 2026 Caio Medeiros</span></div>
@@ -1385,7 +1425,9 @@ var WA_TEXT  = 'Oi Caio! Vi seu portfólio e quero falar sobre edição de víde
 // Showreel 16:9. Aceita .mp4 (src) ou link do YouTube / Vimeo (embed).
 // Ex.: { src:'videos/arquivo.mp4', poster:'videos/capa.jpg' }
 // Ex.: { embed:'https://www.youtube.com/watch?v=XXXXXXXX' }
-var SHOWREEL = { src:'videos/showreel.mp4', poster:'videos/showreel.jpg', embed:'' };
+var SHOWREEL = { src:'videos/showreel.mp4', poster:'videos/showreel.jpg', embed:'',
+  // versão em pé (9:16), usada no celular
+  srcV:'videos/showreel-v.mp4', posterV:'videos/showreel-v.jpg' };
 
 // Os 3 vídeos do topo (9:16, tocam em loop e sem som). O 2º fica no meio, maior.
 var HERO_CLIPS = [
@@ -1520,7 +1562,7 @@ var PORTRAIT = 'img/caio.jpg';
   addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('on'))closeLb()});
 
   /* retrato */
-  if(PORTRAIT){var im=$('#portraitImg');im.src=PORTRAIT;im.hidden=false;$('#portraitPh').hidden=true}
+  if(PORTRAIT){var im=$('#portraitImg');im.src=PORTRAIT;im.hidden=false;var pph=$('#portraitPh');pph&&pph.parentNode.removeChild(pph)}
 
   /* showreel */
   var player=$('#player');
@@ -1529,10 +1571,16 @@ var PORTRAIT = 'img/caio.jpg';
     m=u.match(/vimeo\.com\/(\d+)/); if(m) return 'https://player.vimeo.com/video/'+m[1]+'?autoplay=1';
     return u;
   }
-  if(SHOWREEL.poster){var ph=player.querySelector('.ph');ph.style.background='center/cover no-repeat url("'+SHOWREEL.poster+'")';player.classList.add('has-poster')}
+  var srMq=matchMedia('(max-width:820px)'),srWrap=player.parentNode,srOn=false;
+  function srPick(){var v=srMq.matches&&!!SHOWREEL.srcV&&!SHOWREEL.embed;return {v:v,src:v?SHOWREEL.srcV:SHOWREEL.src,poster:v?(SHOWREEL.posterV||SHOWREEL.poster):SHOWREEL.poster}}
+  function srSetup(){if(srOn)return;var s=srPick();srWrap.classList.toggle('vert',s.v);player.classList.toggle('vert',s.v);
+    if(s.poster){player.querySelector('.ph').style.background='center/cover no-repeat url("'+s.poster+'")';player.classList.add('has-poster')}}
+  srSetup();
+  (srMq.addEventListener?srMq.addEventListener('change',srSetup):srMq.addListener(srSetup));
   $('#playBtn').addEventListener('click',function(){
-    if(SHOWREEL.embed){player.innerHTML='<iframe src="'+embedUrl(SHOWREEL.embed)+'" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Showreel Caio Medeiros"></iframe>'}
-    else if(SHOWREEL.src){player.innerHTML='<video controls autoplay playsinline '+(SHOWREEL.poster?'poster="'+SHOWREEL.poster+'"':'')+' src="'+SHOWREEL.src+'"></video>'}
+    var s=srPick();
+    if(SHOWREEL.embed){srOn=true;player.innerHTML='<iframe src="'+embedUrl(SHOWREEL.embed)+'" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Showreel Caio Medeiros"></iframe>'}
+    else if(s.src){srOn=true;player.innerHTML='<video controls autoplay playsinline '+(s.poster?'poster="'+s.poster+'"':'')+' src="'+s.src+'"></video>'}
     else{var p=player.querySelector('.play');p.animate([{transform:'scale(1)'},{transform:'scale(.9)'},{transform:'scale(1.08)'},{transform:'scale(1)'}],{duration:500})}
   });
 
