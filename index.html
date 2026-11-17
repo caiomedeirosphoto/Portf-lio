@@ -1125,6 +1125,12 @@ footer{padding:0 0 28px}
 .ba-v canvas.ba-cv{background:none;z-index:1;pointer-events:none;inset:0;width:100%;height:100%;border-radius:0}
 .ba.ba-v{-webkit-user-select:none;-webkit-touch-callout:none;touch-action:pan-y}
 .ba-v .lab,.ba-v .hdl{z-index:4}
+/* CTA: glow suave no botão e no fundo do card */
+.btn-big,.btn-big:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 0 0 5px rgba(43,212,109,.10),0 0 34px 2px rgba(43,212,109,.38)}
+.btn-big:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 0 0 6px rgba(43,212,109,.13),0 0 42px 4px rgba(43,212,109,.46)}
+.cta-box::after{top:64%;width:760px;height:460px;background:radial-gradient(closest-side,rgba(43,212,109,.22),rgba(43,212,109,.06) 60%,transparent);filter:blur(14px)}
+.cta-box>*{position:relative;z-index:1}
+@media (max-width:820px){.cta-box::after{width:520px;height:420px;top:66%}}
 </style>
 </head>
 <body>
